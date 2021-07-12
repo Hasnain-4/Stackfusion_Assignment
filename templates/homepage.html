@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block logo %}ASSIGNMENT{% endblock logo %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+
+    <div class="text-center sa">
+        <h2>Stackfusion Assignment</h2>
+        <a class="btn mt-5  examimg" href="{% url 'assignment' %}">Let's get Started</a>
+    </div>
+{% endblock body %}
+

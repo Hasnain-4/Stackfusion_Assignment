@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block logo %}USERS LIST{% endblock logo %}
+{% block body %}
+
+<!-- Internal or Embedded CSS -->
+<style>
+    .userslist{
+        box-shadow: 0 0 6px;
+        color: #00fb87;
+        padding: 3px;
+        padding:6px 10px;
+    }
+    body{
+        background-color:  rgb(22, 20, 48);
+    }
+    @media only screen and (max-width: 500px) {  
+      .container-fluid{
+          padding:2px !important;
+      }
+    }
+</style>
+<!-- Internal or Embedded CSS -->
+
+
+    <div class="container-fluid mt-3">
+    <small>
+
+        <table class="table table-hover table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">MOBILE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in formdata %}
+                <tr>
+                    <td>{{data.name}}</td>
+                    <td>{{data.dob}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.number}}</td>
+                </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+    </small>
+        
+        <div class="container">
+            {% if formdata.has_other_pages %}
+            <ul class="pagination" style="justify-content: center;">
+                {% if formdata.has_previous %}
+                <li class="mr-1"><a class="pr-2 btn btn-sm btn-primary" href="?page={{ formdata.previous_page_number }}">&laquo;</a></li>
+                {% else %}
+                <li class="mr-1 disabled btn-sm btn btn-primary"><span>&laquo;</span></li>
+                {% endif %}
+                {% for i in formdata.paginator.page_range %}
+                {% if formdata.number == i %}
+                    <li class="mr-1 active btn-sm btn btn-primary"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% else %}
+                    <li class="mr-1"><a class="btn btn-sm btn-primary" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if formdata.has_next %}
+                <li class="mr-1"><a class="btn btn-sm btn-primary" href="?page={{ formdata.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                <li class="mr-1 disabled btn-sm btn btn-primary"><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+{% endblock body %}
+
