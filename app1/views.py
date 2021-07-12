@@ -43,7 +43,7 @@ def assignment(request):
                         text = 'Dear '+name+', <br><br> \
                                 Congratulations you have submitted your form successfully! <br> \
                                 You can view all the forms submitted by you and by others on given URL <br>\
-                                https://stackfusion_HA.pythonanywhere.com/ <br> \
+                                https://stackfusion.pythonanywhere.com/ <br> \
                                 Have any further queries, I will be happy to assist you. You can drop a mail to me at ansarihasnain3598@gmail.com <br> \
                                 I hope to cater my services to you in the future too! <br><br> \
                                 Regards,<br><br> \
